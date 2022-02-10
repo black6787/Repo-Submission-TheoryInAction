@@ -1,18 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class TitleManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void ButtonContinue() //LoadScene
     {
-        
+        SceneManager.LoadScene(1);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GetName(string s) //Get txt from button to static value
     {
-        
+        TitlePersist.Instance.namePlayer = s;
+    }
+
+    public void Exit()
+    {
+        TitlePersist.Instance.SaveNamePlayer();
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
+#endif
     }
 }
