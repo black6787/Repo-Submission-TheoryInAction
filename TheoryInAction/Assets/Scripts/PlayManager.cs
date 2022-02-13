@@ -9,7 +9,7 @@ public class PlayManager : MonoBehaviour
     private void Awake() //Change txt
     {
         Text txtMy = GameObject.Find("Canvas/Text").GetComponent<Text>();
-        txtMy.text = $"user: {TitlePersist.Instance.namePlayer}";
+        //txtMy.text = $"user: {TitlePersist.Instance.namePlayer}";
     }
 
     public void ButtonBack() //LoadScene
